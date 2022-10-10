@@ -3,3 +3,76 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root{
+    --dark-grey: #313131;
+    --darker-grey: #090908;
+    --silver: linear-gradient(#576574, #c2b6b6);
+    --gold: linear-gradient(#c69202, #1e1d1b);
+    --emerald: linear-gradient(#233339, #63d471);
+}
+
+#container{
+    width: 100%;
+    height: 100vh;
+}
+
+#container > .cell{
+    width: 10%;
+    height: 10%;
+    float: left;
+    background-color: var(--dark-grey);
+    border: 1px solid black;
+    position: relative;
+    text-align: center;
+    animation: cell-appear 1s ease-in-out forwards;
+    font-size: 1.2rem;
+    color: white;
+}
+
+@keyframes cell-appear{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+#container .cell .cell-inner{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--darker-grey);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 100%;
+}
+
+#container .cell.fizz .cell-inner, #container .cell.buzz .cell-inner, #container .cell.fizzbuzz .cell-inner{
+    width: auto;
+    height: auto;
+    border-radius: 0%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0 ,0 , 0, 0.5);
+    text-align: center;
+    padding: 5px 10px;
+}
+
+#container .cell.fizz{
+    background-image: var(--silver);
+}
+
+#container .cell.buzz{
+    background-image: var(--gold);
+}
+
+#container .cell.fizzbuzz{
+    background-image: var(--emerald);
+}
